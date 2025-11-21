@@ -1,0 +1,25 @@
+{
+  "default_env": "dev",
+  "environments": {
+    "dev": {
+      "maskinporten": {
+        "client_id": "YOUR_CLIENT_ID",
+        "issuer": "YOUR_ISSUER",
+        "token_endpoint": "https://ver2.maskinporten.no/token",
+        "audience": "https://ver2.maskinporten.no/",
+        "scopes": [
+          "nav:test/scope"
+        ],
+        "private_key_path": "private_key.pem",
+        "key_id": "your-key-id"
+      },
+      "apis": {
+        "nav-test-api": {
+          "base_url": "https://api.nav.no/test-api",
+          "health_path": "/internal/health"
+        }
+      },
+      "default_api": "nav-test-api"
+    }
+  }
+}
