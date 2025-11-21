@@ -2,7 +2,6 @@ from pathlib import Path
 import importlib.util
 import types
 
-# Prosjektrot og modulsti
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "nav_integration_workbench.py"
 
@@ -29,11 +28,9 @@ def test_parse_example_config() -> None:
     assert "dev" in cfg.environments
     env = cfg.environments["dev"]
 
-    # Maskinporten og Azure AD skal være definert i eksempelconfigen
     assert env.maskinporten is not None
     assert env.azure_ad is not None
 
-    # Vi skal ha minst ett API definert
     assert "nav-test-api" in env.apis
     api = env.apis["nav-test-api"]
     assert api.base_url.startswith("https://")
