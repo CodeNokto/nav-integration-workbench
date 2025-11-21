@@ -1,15 +1,28 @@
 from pathlib import Path
-import sys
+import importlib.util
+import types
 
-# Sørg for at prosjektroten ligger på sys.path når testen kjører (lokalt + GitHub Actions)
+# Finn prosjektrot og modulfil
 ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+MODULE_PATH = ROOT / "nav_integration_workbench.py"
 
-from nav_integration_workbench import parse_config, WorkbenchConfig  # type: ignore
+
+def _load_module() -> types.ModuleType:
+    if not MODULE_PATH.is_file():
+        raise FileNotFoundError(f"Fant ikke nav_integration_workbench.py på {MODULE_PATH}")
+    spec = importlib.util.spec_from_file_location("nav_integration_workbench", MODULE_PATH)
+    if spec is None or spec.loader is None:
+        raise ImportError("Kunne ikke lage import-spec for nav_integration_workbench")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def test_parse_example_config() -> None:
+    module = _load_module()
+    parse_config = module.parse_config  # type: ignore[attr-defined]
+    WorkbenchConfig = module.WorkbenchConfig  # type: ignore[attr-defined]
+
     cfg = parse_config(ROOT / "nav_workbench.config.example.json")
     assert isinstance(cfg, WorkbenchConfig)
 
