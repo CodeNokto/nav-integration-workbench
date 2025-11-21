@@ -15,7 +15,8 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Local files
-*.log
+# Local sensitive files
 nav_workbench.config.json
 *.pem
+*.key
+*.log

@@ -1,17 +1,17 @@
 {
   "name": "nav-test-api-basic",
-  "description": "Enkel smoke-scenario mot nav-test-api med to GET-kall.",
+  "description": "Enkel scenario mot nav-test-api med to GET-kall.",
   "steps": [
     {
       "api": "nav-test-api",
       "method": "GET",
-      "path": "/internal/health",
+      "path": "/status/200",
       "expected_status": 200
     },
     {
       "api": "nav-test-api",
       "method": "GET",
-      "path": "/",
+      "path": "/delay/1",
       "expected_status": 200
     }
   ]

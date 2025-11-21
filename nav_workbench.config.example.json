@@ -2,6 +2,7 @@
   "default_env": "dev",
   "environments": {
     "dev": {
+      "auth_type": "maskinporten",
       "maskinporten": {
         "client_id": "YOUR_CLIENT_ID",
         "issuer": "YOUR_ISSUER",
@@ -13,10 +14,19 @@
         "private_key_path": "private_key.pem",
         "key_id": "your-key-id"
       },
+      "azure_ad": {
+        "tenant_id": "YOUR_TENANT_ID",
+        "client_id": "YOUR_AAD_CLIENT_ID",
+        "client_secret": "YOUR_AAD_CLIENT_SECRET",
+        "token_endpoint": "https://login.microsoftonline.com/YOUR_TENANT_ID/oauth2/v2.0/token",
+        "scopes": [
+          "api://your-api/.default"
+        ]
+      },
       "apis": {
         "nav-test-api": {
-          "base_url": "https://api.nav.no/test-api",
-          "health_path": "/internal/health"
+          "base_url": "https://httpbin.org",
+          "health_path": "/status/200"
         }
       },
       "default_api": "nav-test-api"
