@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys
 
-# Sørg for at prosjektroten ligger på sys.path når testen kjører (GitHub Actions)
+# Sørg for at prosjektroten ligger på sys.path når testen kjører (lokalt + GitHub Actions)
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
