@@ -83,3 +83,7 @@ Repoet inneholder en GitHub Actions-workflow som:
 Dette er nok til å vise at prosjektet er testbart og byggbart uten ekstra oppsett.
 Dette er et uoffisielt open source-verktøy laget på eget initiativ for å forenkle arbeid med NAV-API-er.
 Prosjektet er ikke bestilt eller driftet av NAV, men kan brukes som støtteverktøy av integrasjonspartnere og utviklere.
+
+## Hvorfor dette er nyttig for NAV
+
+Denne CLI-en reduserer tid og støy i integrasjonsløp mot NAV. Partnere får en standardisert måte å hente tokens og kjøre smoke-tester før de kontakter NAV. NAV får færre feilkonfigurerte integrasjoner, mer presise feilrapporter og mindre manuelt arbeid rundt onboarding og feilsøking.
