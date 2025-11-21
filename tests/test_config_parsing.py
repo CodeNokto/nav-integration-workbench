@@ -2,7 +2,7 @@ from pathlib import Path
 import importlib.util
 import types
 
-# Finn prosjektrot og modulfil
+# Prosjektrot og modulsti
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "nav_integration_workbench.py"
 
